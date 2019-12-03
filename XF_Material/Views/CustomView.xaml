@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ffimg="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             mc:Ignorable="d"
+             x:Class="XF_Material.Views.CustomView"
+             x:Name="this">
+    
+  <ContentView.Content>
+        <Frame Margin="5"
+               Padding="5"
+               HeightRequest="80">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="7*"/>
+                </Grid.ColumnDefinitions>
+
+                <ffimg:CachedImage Source="{Binding Source={x:Reference this}, Path=ProductPicture}"
+                                   Aspect="AspectFill"/>
+                <StackLayout Grid.Column="1">
+                    <Label Text="{Binding Source={x:Reference this}, Path=ProductDescription}"/>
+                    <Label Text="{Binding Source={x:Reference this}, Path=ProductPrice, StringFormat='{0:C2}'}"/>
+                </StackLayout>
+            </Grid>
+        </Frame>        
+  </ContentView.Content>
+</ContentView>

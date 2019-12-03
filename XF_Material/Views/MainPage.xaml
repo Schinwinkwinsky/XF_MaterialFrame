@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:behaviors="http://prismlibrary.com"
+             xmlns:views="clr-namespace:XF_Material.Views"
+             mc:Ignorable="d"
+             x:Class="XF_Material.Views.MainPage"
+             Title="{Binding Title}">
+    
+    <ContentPage.Content>
+        <ListView x:Name="listView" ItemsSource="{Binding Products}"
+                  ItemSelected="ListView_ItemSelected"
+                  HasUnevenRows="True"
+                  SeparatorVisibility="None">
+            <ListView.Behaviors>
+                <behaviors:EventToCommandBehavior EventName="ItemTapped"
+                                                  Command="{Binding ItemTappedCommand}"
+                                                  EventArgsParameterPath="Item"/>
+            </ListView.Behaviors>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <views:CustomView ProductPicture="{Binding ProductPicture}"
+                                          ProductDescription="{Binding ProductDescription}"
+                                          ProductPrice="{Binding ProductPrice}"/>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

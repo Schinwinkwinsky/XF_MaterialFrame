@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ffimg="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             mc:Ignorable="d"
+             x:Class="XF_Material.Views.ProductDetailPage"
+             Title="{Binding Title}">
+    
+    <ContentPage.Content>
+        <StackLayout Padding="5">
+            <ffimg:CachedImage Source="{Binding ProductPicture}"
+                               Aspect="AspectFill"/>
+            <Label Text="{Binding ProductDescription}"
+                   FontSize="Medium"/>
+            <Label Text="{Binding ProductPrice, StringFormat='{0:C2}'}"
+                   FontSize="Medium"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
